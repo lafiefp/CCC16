@@ -4,9 +4,8 @@ using System.Linq;
 
 namespace Level1
 {
-    public class InitialResponse2 : ResponseBase
+    public class InitialResponse : ResponseBase
     {
-        public float MinHeight;
         public int NumberOfDrones;
         public float Xmax;
 
@@ -16,7 +15,7 @@ namespace Level1
 
         public override void Parse(Stream stream)
         {
-            var lines = ReadLines(stream, 3);
+            var lines = ReadLines(stream, 2);
 
             var fieldParts = lines.ElementAt(0).Split(' ');
 
@@ -26,13 +25,12 @@ namespace Level1
             Ymax = float.Parse(fieldParts[3]);
 
             NumberOfDrones = int.Parse(lines.ElementAt(1));
-            MinHeight = float.Parse(lines.ElementAt(2));
 
             Valid = true;
         }
         public override string ToString()
         {
-            return string.Format("InitialResponse (MinHeight: {0}, NumberOfDrones: {1}, Xmin: {2}, Xmax: {3}, Ymin: {4}, Ymax: {%})", MinHeight, NumberOfDrones, Xmin, Xmax, Ymin, Ymax);
+            return string.Format("InitialResponse ( NumberOfDrones: {0}, Xmin: {1}, Xmax: {2}, Ymin: {3}, Ymax: {4})", NumberOfDrones, Xmin, Xmax, Ymin, Ymax);
         }
     }
 }

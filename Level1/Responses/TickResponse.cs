@@ -23,6 +23,8 @@ namespace Level1
             {
                 Time = time;
             }
+
+            Valid = true;
         }
 
         public override string ToString()
