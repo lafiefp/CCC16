@@ -10,7 +10,7 @@ namespace Level1
 
         public override void Parse(Stream stream)
         {
-            var lines = ReadLines(stream, 1);
+            var lines = ReadLines(stream, 2);
 
             Time = float.Parse(lines.ElementAt(0));
             Success = lines.ElementAt(1).Trim() == "SUCCESS";

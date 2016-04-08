@@ -7,6 +7,7 @@ namespace Level1.Commands
         private readonly int _id;
         private readonly float _throttle;
 
+        // throttle must be a value between [0 and 1]
         public ThrottleCommand(int droneId, float throttle)
         {
             Debug.Assert(throttle >= 0 && throttle <= 1);
