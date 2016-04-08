@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -11,12 +12,9 @@ namespace Level1
         public Triple Velocity;
         public Triple Thrust;
 
-        public StatusResponse(Triple position, Triple velocity, Triple thrust)
-            : base(1, new int[]{ 9 })
+        public StatusResponse(Stream stream)
         {
-            Position = positions;
-            Velocity = velocity;
-            Thrust = thrust;
+            // TODO: parse response
         }
     }
 }

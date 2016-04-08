@@ -13,7 +13,6 @@ namespace Level1
     {
         private TcpClient _client;
         private StreamWriter _writer;
-        private StreamReader _reader;
 
         public Communicator(int port = 7000)
         {
@@ -23,12 +22,11 @@ namespace Level1
                 throw new Exception("Couldn't connect");
 
             _writer = new StreamWriter(_client.GetStream());
-            _reader = new StreamReader(_client.GetStream());
         }
 
         public InitialResponse GetInitial()
         {
-            return new InitialResponse(_reader.ReadLine());
+            return new InitialResponse(_client.GetStream());
         }
 
         public ResponseBase ExecuteCommand(CommandBase cmd)
@@ -36,7 +34,7 @@ namespace Level1
             _writer.Write(cmd.ToString());
             _writer.Flush();
 
-            return cmd.InterpretResponse(_reader.ReadToEnd());
+            return cmd.InterpretResponse(_client.GetStream());
         }
 
         public int Port { get; set; }
