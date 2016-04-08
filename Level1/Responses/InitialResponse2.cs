@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Level1
 {
-    public class InitialResponse : ResponseBase
+    public class InitialResponse2 : ResponseBase
     {
         public int NumberOfDrones;
         public float Xmax;

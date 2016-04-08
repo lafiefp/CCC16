@@ -1,4 +1,11 @@
-﻿namespace Level1.Commands
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Level1.Commands
 {
     public class TickCommand : CommandBase<TickResponse>
     {
@@ -6,7 +13,7 @@
 
         public override string ToString()
         {
-            return string.Format("TICK {0}\n", Tick);
+            return string.Format("TICK {0}", Tick);
         }
     }
 }

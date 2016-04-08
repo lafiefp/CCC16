@@ -48,9 +48,11 @@
     <Compile Include="Commands\StatusCommand.cs" />
     <Compile Include="Communicator.cs" />
     <Compile Include="Drone.cs" />
+    <Compile Include="Responses\InitialResponse2.cs" />
     <Compile Include="Responses\InitialResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\LandResponse.cs" />
     <Compile Include="Responses\ParseException.cs" />
     <Compile Include="Responses\ResponseBase.cs" />
     <Compile Include="Responses\StatusResponse.cs" />
