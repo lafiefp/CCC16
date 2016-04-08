@@ -13,7 +13,10 @@ namespace Level1
             var lines = ReadLines(stream, 1);
 
             Time = float.Parse(lines.ElementAt(0));
-            Success = lines.ElementAt(1).Trim() == "SUCCESS";
+            if (lines.Count > 1)
+                Success = lines.ElementAt(1).Trim() == "SUCCESS";
+            else
+                Success = false;
         }
 
         public override string ToString()
