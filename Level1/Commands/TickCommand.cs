@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Level1.Commands
 {
-    class TickCommand : CommandBase<TickResponse>
+    public class TickCommand : CommandBase<TickResponse>
     {
         public static int Tick { get; set; } = 1;
 
         public override string ToString()
         {
-            return $"TICK {Tick}";
+            return string.Format("TICK {0}", Tick);
         }
     }
 }

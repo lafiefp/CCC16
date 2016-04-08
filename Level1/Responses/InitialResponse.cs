@@ -9,18 +9,18 @@ namespace Level1
 {
     public class InitialResponse : ResponseBase
     {
-        override public void parse(Stream stream)
+        public override void Parse(Stream stream)
         {
             var lines = ReadLines(stream);
 
             // check number of lines
             if (lines.Count < 3)
-                throw Exception("too few response lines");
+                throw new Exception("too few response lines");
 
             var fieldParts = lines.ElementAt(0).Split(' ');
 
             if (fieldParts.Length < 4)
-                throw Exception("too few parameters in first line");
+                throw new Exception("too few parameters in first line");
             
             Xmin = float.Parse(fieldParts[0]);
             Xmax = float.Parse(fieldParts[1]);

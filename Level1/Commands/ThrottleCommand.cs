@@ -22,7 +22,7 @@ namespace Level1.Commands
 
         public override string ToString()
         {
-            return $"THROTTLE {_id}\n{_throttle}\n";
+            return string.Format("THROTTLE {0}\n{1}\n", _id, _throttle); // $"THROTTLE {_id}\n{_throttle}\n";
         }
     }
 }
