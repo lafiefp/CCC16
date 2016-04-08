@@ -14,5 +14,11 @@ namespace Level1
             Processed = lines.ElementAt(0).Trim() == "OK";
             Valid = true;
         }
+
+
+        public override string ToString()
+        {
+            return string.Format("ThrottleResponse (Processed: {0})", Processed);
+        }
     }
 }

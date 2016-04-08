@@ -13,7 +13,15 @@ namespace Level1
             var lines = ReadLines(stream, 2);
 
             Time = float.Parse(lines.ElementAt(0));
-            Success = lines.ElementAt(1).Trim() == "SUCCESS";
+            if (lines.Count > 1)
+                Success = lines.ElementAt(1).Trim() == "SUCCESS";
+            else
+                Success = false;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Tickresponse (Success: {0}, Time: {1})", Success, Time);
         }
     }
 }

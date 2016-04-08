@@ -20,12 +20,15 @@ namespace Level1
 
             for (var i = 0; i < numberOfLines; i++)
             {
-                var line = reader.ReadLine();
-                if (line == null)
-                    throw new Exception("end of stream reached with insufficient lines");
+                if (stream.Length > 0)
+                {
+                    var line = reader.ReadLine();
+                    if (line == null)
+                        throw new Exception("end of stream reached with insufficient lines");
 
-                lines.Add(line);
-                Console.WriteLine(DateTime.Now + " - " + line);
+                    lines.Add(line);
+                    Console.WriteLine(DateTime.Now + " - " + line);
+                }
             }
 
             return lines;
