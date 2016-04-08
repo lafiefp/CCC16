@@ -16,8 +16,11 @@ namespace Level1
         public float Time;
         public SuccessState State;
 
-        public TickResponse()
+        public TickResponse(float time, SuccessState state)
             : base(2, new int[]{1, 1})
-        {}
+        {
+            Time = time;
+            State = state;
+        }
     }
 }

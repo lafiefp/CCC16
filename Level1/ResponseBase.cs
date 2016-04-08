@@ -1,6 +1,34 @@
-﻿namespace Level1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Level1
 {
-    public class ResponseBase
+    abstract class ResponseBase
     {
+        public int NumberOfLines
+        {
+            get { return mNumberOfLines; }
+        }
+        
+        public int[] NumberOfParameters
+        {
+            get
+            {
+                return mNumberOfParameters;
+            }
+        }
+
+        private int mNumberOfLines;
+        private int[] mNumberOfParameters;
+
+        protected ResponseBase(int numberOfLines, int[] numberOfParameters)
+        {
+            mNumberOfLines = numberOfLines;
+            mNumberOfParameters = numberOfParameters;
+        }
+
     }
 }

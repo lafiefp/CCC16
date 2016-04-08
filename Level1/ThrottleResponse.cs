@@ -7,10 +7,13 @@ namespace Level1
 {
     class ThrottleResponse : ResponseBase
     {
-        public ThrottleResponse()
+
+        public bool Processed;
+
+        public ThrottleResponse(bool processed;)
             : base(1, new int[]{1})
         {
-
+            this.Processed = processed;
         }
 
     }
