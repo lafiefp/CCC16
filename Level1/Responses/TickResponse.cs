@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,20 +8,19 @@ namespace Level1
 {
     class TickResponse : ResponseBase
     {
-        public enum SuccessState 
-        {
-            NoSuccess,
-            Success
-        }
-
         public float Time;
-        public SuccessState State;
+        public bool Success;
 
-        public TickResponse(float time, SuccessState state)
-            : base(2, new int[]{1, 1})
+        override public void Parse(Stream stream)
         {
-            Time = time;
-            State = state;
+            var lines = ReadLines(stream);
+
+            // check number of lines
+            if (lines.Count < 2)
+                throw Exception("too few response lines");
+
+            Time = float.Parse(lines.ElementAt(0));
+            Success = lines.ElementAt(1).Trim() == "SUCCESS";
         }
     }
 }
