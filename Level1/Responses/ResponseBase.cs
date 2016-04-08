@@ -12,7 +12,7 @@ namespace Level1
         public abstract void Parse(Stream s);
         public bool Valid { get; protected set; }
 
-        protected static List<string> ReadLines(Stream stream)
+        protected static List<string> ReadLines(Stream stream, int numberOfLines)
         {
             if (stream == null || !stream.CanRead)
                 throw Exception("invalid stream");
@@ -21,10 +21,15 @@ namespace Level1
 
             var lines = new List<string>();
 
-            while (!reader.EndOfStream)
+            for (int i = 0; i < numberOfLines; i++)
             {
-                lines.Add(reader.ReadLine());
+                var line = reader.ReadLine();
+                if (line == null)
+                    throw new Exception("end of stream reached with insufficient lines");
+
+                lines.Add(line);
             }
+
             return lines;
         }
     }

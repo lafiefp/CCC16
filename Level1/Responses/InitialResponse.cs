@@ -11,16 +11,13 @@ namespace Level1
     {
         override public void parse(Stream stream)
         {
-            var lines = ReadLines(stream);
+            var lines = ReadLines(stream, 4);
 
             // check number of lines
             if (lines.Count < 3)
                 throw Exception("too few response lines");
 
             var fieldParts = lines.ElementAt(0).Split(' ');
-
-            if (fieldParts.Length < 4)
-                throw Exception("too few parameters in first line");
             
             Xmin = float.Parse(fieldParts[0]);
             Xmax = float.Parse(fieldParts[1]);
