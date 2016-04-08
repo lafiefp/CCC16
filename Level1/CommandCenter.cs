@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Level1
 {
-    class Program
+    class CommandCenter
     {
-        static void Main(string[] args)
-        {
-            var comm = new Communicator();
-            comm.GetInitial();
-        }
     }
 }
