@@ -1,26 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Level1
 {
-    class StatusResponse : ResponseBase
+    internal class StatusResponse : ResponseBase
     {
         public Triple Position;
-        public Triple Velocity;
         public Triple Thrust;
+        public Triple Velocity;
 
-        override public void Parse(Stream stream)
+        public override void Parse(Stream stream)
         {
             var lines = ReadLines(stream, 1);
 
             var stateParts = lines.ElementAt(0).Split(' ');
 
             if (stateParts.Length < 9)
-                throw Exception("too few parameters in first line");
-            
+                throw new Exception("too few parameters in first line");
+
             Position.X = float.Parse(stateParts[0]);
             Position.Y = float.Parse(stateParts[1]);
             Position.Z = float.Parse(stateParts[2]);

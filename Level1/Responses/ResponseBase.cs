@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Level1
 {
     public abstract class ResponseBase
     {
-        public abstract void Parse(Stream s);
         public bool Valid { get; protected set; }
+        public abstract void Parse(Stream s);
 
         protected static List<string> ReadLines(Stream stream, int numberOfLines)
         {
@@ -21,13 +18,14 @@ namespace Level1
 
             var lines = new List<string>();
 
-            for (int i = 0; i < numberOfLines; i++)
+            for (var i = 0; i < numberOfLines; i++)
             {
                 var line = reader.ReadLine();
                 if (line == null)
                     throw new Exception("end of stream reached with insufficient lines");
 
                 lines.Add(line);
+                Console.WriteLine(DateTime.Now + " - " + line);
             }
 
             return lines;

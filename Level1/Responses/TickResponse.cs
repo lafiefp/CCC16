@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Level1
 {
-    class TickResponse : ResponseBase
+    public class TickResponse : ResponseBase
     {
-        public float Time;
         public bool Success;
+        public float Time;
 
-        override public void Parse(Stream stream)
+        public override void Parse(Stream stream)
         {
             var lines = ReadLines(stream, 1);
 

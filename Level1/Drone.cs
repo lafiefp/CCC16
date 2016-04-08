@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Level1
+﻿namespace Level1
 {
-    class Drone
+    internal class Drone
     {
         public int Id { get; set; }
         public Triple Position { get; set; }

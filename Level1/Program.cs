@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using Level1.Commands;
 
 namespace Level1
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
+
             var comm = new Communicator();
-            comm.GetInitial();
+            var settings = comm.GetInitial();
             var status = comm.ExecuteCommand(new StatusCommand(0));
             Console.Write("Done");
         }
