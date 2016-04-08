@@ -26,6 +26,13 @@ namespace Level1
             return resp;
         }
 
+        public InitialResponse GetInitial2()
+        {
+            var resp = new InitialResponse2();
+            resp.Parse(_client.GetStream());
+            return resp;
+        }
+
         public T ExecuteCommand<T>(CommandBase<T> cmd) where T : ResponseBase, new()
         {
             _writer.Write(cmd.ToString());
