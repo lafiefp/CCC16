@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using Level1.Commands;
 
@@ -11,6 +12,7 @@ namespace Level1
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
 
+            TickResponse tick = new TickResponse();
             try
             {
                 var comm = new Communicator();
@@ -19,23 +21,24 @@ namespace Level1
                 var cmdTick = new TickCommand();
 
 
-                if (!comm.ExecuteCommand(new ThrottleCommand(0, 0.1f)).Processed)
+                if (!comm.ExecuteCommand(new ThrottleCommand(0, 0.6f)).Processed)
                 {
                     Console.WriteLine("Throttle not accepted!");
                     return;
                 }
 
-                TickResponse tick = new TickResponse();
                 var status = comm.ExecuteCommand(new StatusCommand(0));
                 while (!tick.Success)
                 {
+                    Console.WriteLine(comm.ExecuteCommand(new StatusCommand(0)));
                     tick = comm.ExecuteCommand(cmdTick);
-                    status = comm.ExecuteCommand(new StatusCommand(0));
-                    Console.WriteLine(status.Position.Z);
-                    Console.WriteLine(status.Velocity.Z);
                 }
 
-                Console.Write("Done");
+                Console.WriteLine("Finished within " + tick.Time);
+            }
+            catch (ParseException e)
+            {
+                Console.WriteLine(e);
             }
             catch (Exception e)
             {

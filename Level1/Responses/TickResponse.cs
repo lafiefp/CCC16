@@ -10,13 +10,19 @@ namespace Level1
 
         public override void Parse(Stream stream)
         {
-            var lines = ReadLines(stream, 2);
+            var lines = ReadLines(stream, 1);
 
-            Time = float.Parse(lines.ElementAt(0));
-            if (lines.Count > 1)
-                Success = lines.ElementAt(1).Trim() == "SUCCESS";
+            float time;
+            if (!float.TryParse(lines.ElementAt(0), out time))
+            {
+                Success = lines.ElementAt(0).Trim().Equals("SUCCESS");
+                if (!Success)
+                    throw new ParseException("Invalid response!", lines);
+            }
             else
-                Success = false;
+            {
+                Time = time;
+            }
         }
 
         public override string ToString()

@@ -34,7 +34,7 @@ namespace Level1
 
         public override string ToString()
         {
-            return string.Format("StatusResponse (Position: {0}, Velocity: {1}, Thrust: {2})", Position, Velocity, Thrust);
+            return string.Format("StatusResponse (Position: {0}, Velocity: {1}, Thrust: {2})", Position.ToString(), Velocity.ToString(), Thrust.ToString());
         }
     }
 }

@@ -15,20 +15,25 @@ namespace Level1
                 throw new Exception("invalid stream");
 
             var reader = new StreamReader(stream);
+            reader.BaseStream.ReadTimeout = 500;
 
             var lines = new List<string>();
 
-            for (var i = 0; i < numberOfLines; i++)
+            try
             {
-                if (stream.Length > 0)
+                for (var i = 0; i < numberOfLines; i++)
                 {
                     var line = reader.ReadLine();
                     if (line == null)
                         throw new Exception("end of stream reached with insufficient lines");
 
                     lines.Add(line);
-                    Console.WriteLine(DateTime.Now + " - " + line);
+                    // Console.WriteLine(DateTime.Now + " - " + line);
                 }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Read timed out");
             }
 
             return lines;
