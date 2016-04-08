@@ -30,5 +30,9 @@ namespace Level1
 
             Valid = true;
         }
+        public override string ToString()
+        {
+            return string.Format("InitialResponse (MinHeight: {0}, NumberOfDrones: {1}, Xmin: {2}, Xmax: {3}, Ymin: {4}, Ymax: {%})", MinHeight, NumberOfDrones, Xmin, Xmax, Ymin, Ymax);
+        }
     }
 }

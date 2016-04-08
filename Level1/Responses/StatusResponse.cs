@@ -31,5 +31,10 @@ namespace Level1
 
             Valid = true;
         }
+
+        public override string ToString()
+        {
+            return string.Format("StatusResponse (Position: {0}, Velocity: {1}, Thrust: {2})", Position, Velocity, Thrust);
+        }
     }
 }

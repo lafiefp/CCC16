@@ -15,5 +15,10 @@ namespace Level1
             Time = float.Parse(lines.ElementAt(0));
             Success = lines.ElementAt(1).Trim() == "SUCCESS";
         }
+
+        public override string ToString()
+        {
+            return string.Format("Tickresponse (Success: {0}, Time: {1})", Success, Time);
+        }
     }
 }
