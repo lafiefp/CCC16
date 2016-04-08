@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="CommandCenter.cs" />
+    <Compile Include="Commands\TickCommand.cs" />
+    <Compile Include="Commands\ThrottleCommand.cs" />
     <Compile Include="Commands\StatusCommand.cs" />
     <Compile Include="Communicator.cs" />
     <Compile Include="Drone.cs" />

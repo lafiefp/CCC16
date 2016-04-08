@@ -11,8 +11,8 @@ namespace Level1
 {
     public class Communicator
     {
-        private TcpClient _client;
-        private StreamWriter _writer;
+        private readonly TcpClient _client;
+        private readonly StreamWriter _writer;
 
         public Communicator(int port = 7000)
         {
@@ -29,14 +29,12 @@ namespace Level1
             return new InitialResponse(_client.GetStream());
         }
 
-        public ResponseBase ExecuteCommand(CommandBase cmd)
+        public void ExecuteCommand(CommandBase cmd)
         {
             _writer.Write(cmd.ToString());
             _writer.Flush();
 
-            return cmd.InterpretResponse(_client.GetStream());
+            cmd.InterpretResponse(_client.GetStream());
         }
-
-        public int Port { get; set; }
     }
 }

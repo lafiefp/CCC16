@@ -9,6 +9,6 @@ namespace Level1
 {
     public abstract class ResponseBase
     {
-        public bool Valid { get; protected set; }
+        public abstract void Parse(Stream s);
     }
 }

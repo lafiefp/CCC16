@@ -7,16 +7,23 @@ using System.Threading.Tasks;
 
 namespace Level1.Commands
 {
-    class StatusCommand : CommandBase
+    class StatusCommand : CommandBase<StatusResponse>
     {
-        public override string ToString()
+        private int _id;
+
+        public StatusCommand(int id)
         {
-            return base.ToString();
+            _id = id;
         }
 
-        public override ResponseBase InterpretResponse(Stream stream)
+        public override string ToString()
         {
-            return new StatusResponse(stream);
+            return $"STATUS {_id}\n";
+        }
+
+        public override void InterpretResponse(Stream stream)
+        {
+            Response = new StatusResponse(stream);
         }
     }
 }
