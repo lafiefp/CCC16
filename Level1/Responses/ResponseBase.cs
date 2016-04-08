@@ -15,7 +15,7 @@ namespace Level1
         protected static List<string> ReadLines(Stream stream, int numberOfLines)
         {
             if (stream == null || !stream.CanRead)
-                throw Exception("invalid stream");
+                throw new Exception("invalid stream");
 
             var reader = new StreamReader(stream);
 

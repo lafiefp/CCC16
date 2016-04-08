@@ -18,12 +18,7 @@ namespace Level1.Commands
 
         public override string ToString()
         {
-            return $"STATUS {_id}\n";
-        }
-
-        public override void InterpretResponse(Stream stream)
-        {
-            Response = new StatusResponse(stream);
+            return string.Format("STATUS {0}", _id);  // $"STATUS {_id}\n";
         }
     }
 }
