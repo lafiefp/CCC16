@@ -41,8 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitialResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseBase.cs" />
+    <Compile Include="StatusResponse.cs" />
+    <Compile Include="ThrottleResponse.cs" />
+    <Compile Include="TickResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
